@@ -30,7 +30,7 @@ private slots:
     void on_clearMap_clicked();
 
 private:
-    Ui::MainWindow* ui;
+    Ui::MainWindow ui;
     Graph graph;
     bool drawMap;
     size_t firstNode, lastNode;

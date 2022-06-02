@@ -5,11 +5,10 @@
 
 LuxembourgMap::LuxembourgMap(QWidget* parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
 {
     drawMap = false;
     firstNode = lastNode = SIZE_MAX;
-    ui->setupUi(this);
+    ui.setupUi(this);
 
 }
 
@@ -153,14 +152,14 @@ void LuxembourgMap::on_loadMap_clicked()
     AddEdgesToGraph("edges.txt");
     graph.GenerateAdjacencyLists();
 
-    ui->loadMap->setDisabled(true);
+    ui.loadMap->setDisabled(true);
     update();
 }
 
 void LuxembourgMap::on_drawMap_clicked()
 {
     drawMap = true;
-    ui->drawMap->setDisabled(true);
+    ui.drawMap->setDisabled(true);
     update();
 }
 
@@ -177,7 +176,7 @@ void LuxembourgMap::on_applyDijkstra_clicked()
             out << minimumPath[index] << " ";
         out.close();
 
-        ui->applyDijkstra->setDisabled(true);
+        ui.applyDijkstra->setDisabled(true);
         update();
     }
 }
@@ -186,6 +185,6 @@ void LuxembourgMap::on_clearMap_clicked()
 {
     firstNode = lastNode = SIZE_MAX;
     minimumPath.clear();
-    ui->applyDijkstra->setDisabled(false);
+    ui.applyDijkstra->setDisabled(false);
     update();
 }
